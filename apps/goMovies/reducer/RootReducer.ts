@@ -1,19 +1,16 @@
 import {Reducer, combineReducers} from 'redux';
-import {
-  UsersListState,
-  UsersReducer,
-} from '../screens/UsersListScroll/usersReducer';
+import {HomeReducer} from '../screens/home/homeReducer';
 
 type ZippedReducersType<T> = {
   [key in keyof T]: Reducer<T[key]>;
 };
 
 export interface RootState {
-  usersReducer: UsersListState;
+  HomeReducer: null;
 }
 
 const zipedReducer = (): ZippedReducersType<RootState> => ({
-  usersReducer: UsersReducer,
+  HomeReducer: HomeReducer,
 });
 
 export const combainedReducers = () =>

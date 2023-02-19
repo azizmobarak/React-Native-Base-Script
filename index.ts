@@ -3,16 +3,17 @@
  */
 
 import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json';
+import {name} from './app.json';
 import MoviesApp from './apps/goMovies/App';
-import Config from 'react-native-config';
+import {APP} from '@env';
+import {appName} from './apps/shared/types/apps';
 
 let app: any = null;
 
-console.log('whitch app', Config.APP);
+console.log('whitch app', APP);
 
-if (Config.APP === 'MOVIES') {
+if (APP === appName.MoviesApp) {
   app = MoviesApp;
 }
 
-AppRegistry.registerComponent(appName, () => app);
+AppRegistry.registerComponent(name, () => app);
