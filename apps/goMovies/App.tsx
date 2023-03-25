@@ -9,7 +9,11 @@ import {navigationRef} from './services/Navigation/ReactNavigationNavigator';
 function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={'black'} />
+      <StatusBar
+        backgroundColor={'#900'}
+        barStyle={'dark-content'}
+        showHideTransition={'fade'}
+      />
       <Provider store={store}>
         <NavigationContainer ref={navigationRef as RefObject<any>}>
           <RootNavigationNavigator />
