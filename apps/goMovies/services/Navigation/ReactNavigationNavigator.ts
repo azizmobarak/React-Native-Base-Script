@@ -6,8 +6,11 @@ export const navigationRef: RefObject<any> = React.createRef();
 export class Navigation implements NavigationService {
   private navigationDispatcher?: RefObject<any> = navigationRef;
 
-  navigateTo(screen: Screens) {
-    this.navigationDispatcher?.current.navigate(screen);
+  navigateTo(screen: Screens, stackName?: string) {
+    if (!stackName) {
+      this.navigationDispatcher?.current.navigate(screen);
+    }
+    this.navigationDispatcher?.current.navigate(stackName, {screen: screen});
   }
 
   goBack() {

@@ -2,8 +2,9 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {navigateToLogin} from '../../services/Navigation/helpers';
+import {themConnector} from '../../utils/WrapperConnector';
 
-export default function Home() {
+function HomeComponent() {
   return (
     <View>
       <TouchableOpacity onPress={navigateToLogin}>
@@ -12,3 +13,5 @@ export default function Home() {
     </View>
   );
 }
+
+export const HomeScreen = () => themConnector(<HomeComponent />);

@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import {Screens} from './Screens';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../../screens/home/Home';
+import {HomeScreen} from '../../screens/home/Home';
 import {NavigatorScreenParams} from '@react-navigation/native';
-import Login from '../../screens/login/Login';
+import {LoginScreen} from '../../screens/login/Login';
 
 // ps: the comments here just for explaining and not nedeed since every function and var has a meaning by it's name
 
@@ -31,7 +31,7 @@ const UsersNavigationNavigator: FC = () => {
       <Screen
         options={{headerShown: false}}
         name={Screens.Home}
-        component={Home}
+        component={HomeScreen}
       />
     </Navigator>
   );
@@ -50,7 +50,7 @@ export const RootNavigationNavigator: FC = () => {
       }}>
       <Screen
         name={Screens.Login}
-        component={Login}
+        component={LoginScreen}
         options={{headerShown: false}}
       />
       <Screen name={Screens.RootStack} component={UsersNavigationNavigator} />

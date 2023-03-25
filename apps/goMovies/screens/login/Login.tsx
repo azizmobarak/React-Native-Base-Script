@@ -2,8 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import InputText from '../../components/InputText';
 import ThemColorButton from '../../components/Button';
+import {buildLoginPresenter} from './loginPresenter';
+import {themConnector} from '../../utils/WrapperConnector';
 
-export default function Login() {
+function LoginComponent() {
+  const {toHome} = buildLoginPresenter();
   const divider = (title: string) => (
     <View style={styles.visitContainer}>
       <View style={styles.div} />
@@ -13,7 +16,7 @@ export default function Login() {
   );
 
   return (
-    <View style={styles.container}>
+    <>
       <Image
         style={styles.logo}
         source={require('../../assets/images/logo.png')}
@@ -33,24 +36,18 @@ export default function Login() {
           isPassword={true}
         />
       </View>
-      <ThemColorButton title="Submit" onPressDelay={200} onPress={() => null} />
+      <ThemColorButton title="Submit" onPressDelay={200} onPress={toHome} />
       {divider('visit us')}
       <Text style={{color: 'white'}}>https://Brandini.co.uk</Text>
       <Text style={styles.noteText}>
         * Brandini LTD is a zon where you can find interesting digital products
         and services in UK{' '}
       </Text>
-    </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#900',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   inputContainer: {
     padding: 4,
     alignItems: 'center',
@@ -86,3 +83,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export const LoginScreen = () => themConnector(<LoginComponent />);
