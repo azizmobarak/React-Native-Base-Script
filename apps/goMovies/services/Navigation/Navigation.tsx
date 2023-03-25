@@ -3,6 +3,7 @@ import {Screens} from './Screens';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../../screens/home/Home';
 import {NavigatorScreenParams} from '@react-navigation/native';
+import Login from '../../screens/login/Login';
 
 // ps: the comments here just for explaining and not nedeed since every function and var has a meaning by it's name
 
@@ -14,6 +15,7 @@ export type UsersNavigation = {
 
 export type RootNavigation = {
   [Screens.RootStack]: NavigatorScreenParams<UsersNavigation>;
+  [Screens.Login]: NavigatorScreenParams<undefined>;
 };
 
 // navigation stacks
@@ -44,8 +46,13 @@ export const RootNavigationNavigator: FC = () => {
   return (
     <Navigator
       screenOptions={{
-        headerShown: false,
+        headerBackTitle: 'back',
       }}>
+      <Screen
+        name={Screens.Login}
+        component={Login}
+        options={{headerShown: false}}
+      />
       <Screen name={Screens.RootStack} component={UsersNavigationNavigator} />
     </Navigator>
   );

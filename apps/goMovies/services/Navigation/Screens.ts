@@ -1,4 +1,5 @@
 export enum Screens {
   Home = 'Home',
-  RootStack = 'RootStack'
+  RootStack = 'RootStack',
+  Login = 'Login',
 }
